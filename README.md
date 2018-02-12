@@ -1,14 +1,14 @@
-#Introduction to Programming
+# Introduction to Programming
 
-##Practical 10: Main methods 
+## Practical 10: Main methods 
 
 ## Instructions
 
 This week the practical focuses on writing main methods. You will also get to use the university Linux system, showing how Java is cross-platform.
 
-###Level 0:
+### Level 0:
 
-1. Log in to the university Linux service mira, easiest to do by using putty (search for it from the start menu). Use the same username and password that you use to log in to NPCS. Use the command `cd` to change into a directory (folder) and `ls` to list the files that are there. If you want more instructions on basic Unix commands then look at the introduction and step one of this [Unix tutorial](http://www.open-of-course.org/courses/mod/page/view.php?id=453)
+1. Log in to the university Linux service mira, easiest to do by using putty (search for it from the start menu). Use the same username and password that you use to log in to CIS email etc. Use the command `cd` to change into a directory (folder) and `ls` to list the files that are there. If you want more instructions on basic Unix commands then look at the introduction and step one of this [Unix tutorial](http://www.open-of-course.org/courses/mod/page/view.php?id=453)
 2. Get into a directory where one of your java projects is stored and compile a java files with the `javac` command e.g.
 
    ```javac Module.java```
@@ -26,7 +26,7 @@ This week the practical focuses on writing main methods. You will also get to us
    
    This method should create an object in a local variable by using a constructor and then execute one of the methods on that object.
 
-###Level 1: Palindromes
+### Level 1: Palindromes
 
 (This was an exam question back in the day when IP was assessed by a written exam)
 Write a Java class called _Palindrome_ which identifies whether the text given
@@ -49,7 +49,7 @@ will display
    
 Remember that when you execute a java class from the command line that the `main` method is executed and that the command line parameters (i.e. any text that is given after the name of the class) are passed to the main method as a `String[]` parameter.
  
-###Level 2: The blues
+### Level 2: The blues
 
 1. Read this web page about singing the blues:
 <http://www.analogman.com/singblues.htm>
