@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 /**
  * Write a description of class Blues here.
  * 
@@ -10,10 +11,10 @@ public class Blues
     
     private static final Random rand = new Random();
     
-    String[] locs = {"the highway", "a jailhouse", "an empty bed", "a bottom of a whiskey glass"};
-    String[] rig = {"I'm older than dirt", "I'm blind", "I shot a man in Memphis", "I can't be satisfied"};
-    String[] dri = {"wine", "whiskey", "bourbon", "muddy water", "black coffee", "gasoline when I asked for water"};
-    String[] tra = {"Chevy", "Cadillac", "Greyhound bus", "feet"};
+    private String[] locs = {"the highway", "a jailhouse", "an empty bed", "a bottom of a whiskey glass"};
+    private String[] rig = {"I'm older than dirt", "I'm blind", "I shot a man in Memphis", "I can't be satisfied"};
+    private String[] dri = {"wine", "whiskey", "bourbon", "muddy water", "black coffee", "gasoline when I asked for water"};
+    private String[] tra = {"Chevy", "Cadillac", "Greyhound bus", "feet"};
        
     public static void main(String[] args){
         Blues song = new Blues();
@@ -31,8 +32,28 @@ public class Blues
             for(int i = 0; i < numVerses; i++){
                 printVerse(generateVerse(new String[0]));
             }
+        } else if (args[0] == "prompt") {
+            String[] newArgs = new String[args.length-1];
+            System.arraycopy(args, 1, newArgs,0,args.length-1);
+            printVerse(generateVerse(newArgs));
+            for(int i = 0; i < numVerses-1; i++){
+                printVerse(generateVerse(new String[0]));
+            }
         } else {
-            printVerse(generateVerse(args));
+            ArrayList<String> userLines = new ArrayList<String>();
+            String st = "";
+            String[] newArgs = new String[args.length-1];
+            System.arraycopy(args, 1, newArgs,0,args.length-1);
+            for(String s : newArgs){
+                if(s == "\n"){
+                    userLines.add(st);
+                    st = "";
+                } else {
+                    st += s + " ";
+                }
+            }
+            userLines.add(st);
+            printUserVerse(userLines, generateVerse(new String[0]));
             for(int i = 0; i < numVerses-1; i++){
                 printVerse(generateVerse(new String[0]));
             }
@@ -46,6 +67,16 @@ public class Blues
         System.out.println(st[1]);
         System.out.println(st[2]);
         System.out.println(st[3]);
+        System.out.println("");
+    }
+    
+    private void printUserVerse(ArrayList<String> user, String[] st){
+        for(String s : user){
+            System.out.println(s);
+        }
+        for(int i = 0; i < st.length - user.size() + 2; i++){
+            System.out.println(st[i % st.length]);
+        }
         System.out.println("");
     }
     
