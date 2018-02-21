@@ -32,7 +32,7 @@ public class Blues
             for(int i = 0; i < numVerses; i++){
                 printVerse(generateVerse(new String[0]));
             }
-        } else if (args[0] == "prompt") {
+        } else if (args[0].equals("prompt")) {
             String[] newArgs = new String[args.length-1];
             System.arraycopy(args, 1, newArgs,0,args.length-1);
             printVerse(generateVerse(newArgs));
@@ -40,25 +40,54 @@ public class Blues
                 printVerse(generateVerse(new String[0]));
             }
         } else {
-            ArrayList<String> userLines = new ArrayList<String>();
-            String st = "";
-            String[] newArgs = new String[args.length-1];
-            System.arraycopy(args, 1, newArgs,0,args.length-1);
-            for(String s : newArgs){
-                if(s == "\n"){
-                    userLines.add(st);
-                    st = "";
-                } else {
-                    st += s + " ";
-                }
-            }
-            userLines.add(st);
-            printUserVerse(userLines, generateVerse(new String[0]));
-            for(int i = 0; i < numVerses-1; i++){
-                printVerse(generateVerse(new String[0]));
-            }
+			if(checkIfBlues(args)){
+	            ArrayList<String> userLines = new ArrayList<String>();
+    	        String st = "";
+        	    for(String s : args){
+            	    if(s.equals("/n")){
+                	    userLines.add(st);
+                    	st = "";
+	                } else {
+    	                st += s + " ";
+        	        }
+            	}
+	            userLines.add(st);
+    	        printUserVerse(userLines, generateVerse(new String[0]));
+        	    for(int i = 0; i < numVerses-1; i++){
+            	    printVerse(generateVerse(new String[0]));
+	            }
+    	    }else{
+				System.out.println("It's not the blues");
+    	    }
         }
     }
+
+	private boolean checkIfBlues(String[] args){
+		boolean blues = false;
+		for(String s : args){
+			for(String l : locs){
+				if(s.equals(l)){
+					blues = true;
+				}
+			}
+			for(String r : rig){
+				if(s.equals(r)){
+					blues = true;
+				}
+			}
+			for(String d : dri){
+				if(s.equals(d)){
+					blues = true;
+				}
+			}
+			for(String t : tra){
+				if(s.equals(t)){
+					blues = true;
+				}
+			}
+		}
+		return blues;
+	}
     
     private void printVerse(String[] st){
         System.out.println(st[0]);
