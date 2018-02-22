@@ -40,54 +40,54 @@ public class Blues
                 printVerse(generateVerse(new String[0]));
             }
         } else {
-			if(checkIfBlues(args)){
-	            ArrayList<String> userLines = new ArrayList<String>();
-    	        String st = "";
-        	    for(String s : args){
-            	    if(s.equals("/n")){
-                	    userLines.add(st);
-                    	st = "";
-	                } else {
-    	                st += s + " ";
-        	        }
-            	}
-	            userLines.add(st);
-    	        printUserVerse(userLines, generateVerse(new String[0]));
-        	    for(int i = 0; i < numVerses-1; i++){
-            	    printVerse(generateVerse(new String[0]));
-	            }
-    	    }else{
-				System.out.println("It's not the blues");
-    	    }
+            if(checkIfBlues(args)){
+                ArrayList<String> userLines = new ArrayList<String>();
+                String st = "";
+                for(String s : args){
+                    if(s.equals("/n")){
+                        userLines.add(st);
+                        st = "";
+                    } else {
+                        st += s + " ";
+                    }
+                }
+                userLines.add(st);
+                printUserVerse(userLines, generateVerse(new String[0]));
+                for(int i = 0; i < numVerses-1; i++){
+                    printVerse(generateVerse(new String[0]));
+                }
+            }else{
+                System.out.println("It's not the blues");
+            }
         }
     }
 
-	private boolean checkIfBlues(String[] args){
-		boolean blues = false;
-		for(String s : args){
-			for(String l : locs){
-				if(s.equals(l)){
-					blues = true;
-				}
-			}
-			for(String r : rig){
-				if(s.equals(r)){
-					blues = true;
-				}
-			}
-			for(String d : dri){
-				if(s.equals(d)){
-					blues = true;
-				}
-			}
-			for(String t : tra){
-				if(s.equals(t)){
-					blues = true;
-				}
-			}
-		}
-		return blues;
-	}
+    private boolean checkIfBlues(String[] args){
+        boolean blues = false;
+        for(String s : args){
+            for(String l : locs){
+                if(s.equals(l)){
+                    blues = true;
+                }
+            }
+            for(String r : rig){
+                if(s.equals(r)){
+                    blues = true;
+                }
+            }
+            for(String d : dri){
+                if(s.equals(d)){
+                    blues = true;
+                }
+            }
+            for(String t : tra){
+                if(s.equals(t)){
+                    blues = true;
+                }
+            }
+        }
+        return blues;
+    }
     
     private void printVerse(String[] st){
         System.out.println(st[0]);
