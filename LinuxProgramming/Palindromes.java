@@ -8,23 +8,21 @@
 public class Palindromes
 {
     
-    String str;
-    
     public static void main(String[] args){
         String st = "";
         for(String s : args){
             st += s + " ";
         }
-        Palindromes check = new Palindromes(st);
-        check.test();
+        Palindromes check = new Palindromes();
+        check.test(st);
     }
     
-    public Palindromes(String newString)
+    public Palindromes()
     {
-        str = newString;
+        
     }
     
-    public void test(){
+    public void test(String str){
         boolean flag = true;
         String st = str.replaceAll("\\s","");
         st = st.toLowerCase();
